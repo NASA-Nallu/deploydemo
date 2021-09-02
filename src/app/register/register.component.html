@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <form [formGroup] = "userForm" (ngSubmit)="onSubmit()">
+      <br />
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" formControlName="fullName" class="form-control">
+        <div class="alert alert-danger" *ngIf="f.fullName.errors && f.fullName.touched">
+          <p *ngIf="f.fullName.errors?.required">Full name is required</p>
+        </div>
+        </div>
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" formControlName="userName" class="form-control">
+        <div class="alert alert-danger" *ngIf="f.userName.errors && f.userName.touched">
+          <p *ngIf="f.userName.errors?.required">User name is required</p>
+          <p *ngIf="f.userName.errors?.email">Enter valid email</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" formControlName="email" class="form-control">
+        <div class="alert alert-danger" *ngIf="f.email.errors && f.email.touched">
+          <p *ngIf="f.email.errors?.required">The email is required</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control">
+        <div class="alert alert-danger" *ngIf="f.password.errors && f.password.touched">
+          <p *ngIf="f.password.errors?.required">The password is required</p>
+          <p *ngIf="f.password.errors?.minLength">The password length should 6 characters</p>
+          <p *ngIf="f.password.errors?.maxLength">The password length should not exceed 12 characters</p>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control">
+        <div class="alert alert-danger" *ngIf="f.confirmPassword.errors && f.confirmPassword.touched">
+          <p *ngIf="f.confirmPassword.errors?.required">The password is required</p>
+          <p *ngIf="f.confirmPassword.errors?.minLength">The password length should 6 characters</p>
+          <p *ngIf="f.confirmPassword.errors?.maxLength">The password length should not exceed 12 characters</p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Register</button>
+    </form>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <p>{{userForm.value | json}}</p>
+</div>

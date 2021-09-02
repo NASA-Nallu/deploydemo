@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Nallu Digital</a>
+  <!-- Links -->
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="openDialog()">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/register">Register</a>
+    </li>
+    <li><span class="glyphicon glyphicon-pencil"></span>
+      <span class="glyphicon glyphicon-trash"></span></li>
+  </ul>
+</nav>
+<div class="container">
+  <ngx-spinner></ngx-spinner>
+  <router-outlet></router-outlet>
+</div>
